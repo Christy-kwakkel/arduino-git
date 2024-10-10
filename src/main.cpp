@@ -45,6 +45,7 @@ void loop()
 
 void getNumbers()
 {
+    //Validate and get first input
     while (number1 == 0)
     {
       Serial.print("Input the first number: ");
@@ -52,6 +53,7 @@ void getNumbers()
       number1 = Serial.parseFloat();
     } 
     
+    //Validate and get second input
     while (number2 == 0)
     {
       Serial.print("Input the second number: ");
