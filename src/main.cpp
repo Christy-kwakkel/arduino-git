@@ -27,10 +27,10 @@ void loop()
 
 void blink()
 {
-  digitalWrite(LEDPIN, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(100);                      // wait for a second
-  digitalWrite(LEDPIN, LOW);   // turn the LED off by making the voltage LOW
-  delay(500); 
+  // digitalWrite(LEDPIN, HIGH);  // turn the LED on (HIGH is the voltage level)
+  // delay(100);                      // wait for a second
+  // digitalWrite(LEDPIN, LOW);   // turn the LED off by making the voltage LOW
+  // delay(500); 
 }
 
 
@@ -38,7 +38,10 @@ void menu()
 {
   // Prompt the user for calculate of multiplication
   Serial.println("1(calculate sum) or 2(multiplication)? ");
-  while (Serial.available() <= 0){}
+  while (Serial.available() <= 0)
+  {
+    blink();
+  }
   int input = Serial.parseInt();
   getNumbers();
 
@@ -65,7 +68,10 @@ void getNumbers()
     while (number1 == 0)
     {
       Serial.print("Input the first number: ");
-      while (Serial.available() <= 0){}
+      while (Serial.available() <= 0)
+      {
+        blink();
+      }
       number1 = Serial.parseFloat();
     } 
     
@@ -73,7 +79,10 @@ void getNumbers()
     while (number2 == 0)
     {
       Serial.print("Input the second number: ");
-      while (Serial.available() <= 0){}
+      while (Serial.available() <= 0)
+      {
+        blink();
+      }
       number2 = Serial.parseFloat();
     } 
 }
