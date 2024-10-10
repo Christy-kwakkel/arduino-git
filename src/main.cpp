@@ -2,15 +2,14 @@
 
 float number1;
 float number2;
+
 // put function declarations here:
 float multiplication(float number1, float number2);
 void getNumbers();
 const int ledPin = 13;
-
 void setup() 
 {
   Serial.begin(9600);
-
 }
 
 
@@ -40,19 +39,25 @@ void loop()
     float result = multiplication(number1, number2);
     input = 0;
     Serial.println(result);
+    number1, number2 = 0;
   }
 }
 
 void getNumbers()
 {
-    Serial.println("First number");
-    while (Serial.available() <= 0){}
-    float number1 = Serial.parseFloat();
-
-
-    Serial.println("Second number");
-    while (Serial.available() <= 0){}
-    float number2 = Serial.parseFloat();
+    while (number1 == 0)
+    {
+      Serial.print("Input the first number: ");
+      while (Serial.available() <= 0){}
+      number1 = Serial.parseFloat();
+    } 
+    
+    while (number2 == 0)
+    {
+      Serial.print("Input the second number: ");
+      while (Serial.available() <= 0){}
+      number2 = Serial.parseFloat();
+    } 
 }
 
 float multiplication(float number1, float number2)
