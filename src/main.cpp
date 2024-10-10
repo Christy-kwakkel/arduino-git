@@ -1,7 +1,10 @@
 #include <Arduino.h>
 
+float number1;
+float number2;
 // put function declarations here:
-int myFunction(int, int);
+float multiplication(float number1, float number2);
+void getNumbers();
 const int ledPin = 13;
 
 void setup() 
@@ -13,20 +16,16 @@ void setup()
 
 void loop() 
 {
-
-digitalWrite(ledPin, HIGH);  // turn the LED on (HIGH is the voltage level)
-  delay(100);                      // wait for a second
-  digitalWrite(ledPin, LOW);   // turn the LED off by making the voltage LOW
-  delay(500); 
+  // digitalWrite(ledPin, HIGH);  // turn the LED on (HIGH is the voltage level)
+  // delay(100);                      // wait for a second
+  // digitalWrite(ledPin, LOW);   // turn the LED off by making the voltage LOW
+  // delay(500); 
 
 // Prompt the user for calculate of multiplication
-  int input = 0;
-   while (Serial.available() <= 0)
-  {
-    Serial.println("1(calculate sum) or 2(multiplication)? ");
-    while (input < 1 || input > 2)
-    input = Serial.parseInt();
-  }
+  Serial.println("1(calculate sum) or 2(multiplication)? ");
+  while (Serial.available() <= 0){}
+  int input = Serial.parseInt();
+  getNumbers();
 
   if (input == 1)
   {
@@ -38,14 +37,22 @@ digitalWrite(ledPin, HIGH);  // turn the LED on (HIGH is the voltage level)
   if (input == 2)
   {
     // multiplication
-    Serial.println("1");
+    float result = multiplication(number1, number2);
     input = 0;
+    Serial.println(result);
   }
 }
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+void getNumbers()
+{
+    Serial.println("First number");
+    while (Serial.available() <= 0){}
+    float number1 = Serial.parseFloat();
+
+
+    Serial.println("Second number");
+    while (Serial.available() <= 0){}
+    float number2 = Serial.parseFloat();
 }
 
 float multiplication(float number1, float number2)
