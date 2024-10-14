@@ -43,6 +43,11 @@ void menu()
     blink();
   }
   int input = Serial.parseInt();
+  if(input != 1 && input != 2)
+  {
+    Serial.println("Please choose 1 or 2");
+    return;
+  }
   getNumbers();
 
   if (input == 1)
