@@ -71,9 +71,10 @@ void menu()
 
   if (input == 1)
   {
-    //function calculation
-    Serial.println("1");
+    float result = addition(number1, number2);
     input = 0;
+    Serial.println(result);
+    number1, number2 = 0;
   }
 
   // Go to multiplication function and print out the result, resetting all inputs after
@@ -111,7 +112,14 @@ void getNumbers()
     } 
 }
 
+// multiplies 2 numbers
 float multiplication(float number1, float number2)
 {
   return number1 * number2;
+}
+
+// adds 2 numbers
+float addition(float number1, float number2)
+{
+  return number1 + number2;
 }
