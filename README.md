@@ -1,1 +1,1 @@
-Very cool multiplication and addition calculator, new functions will *not* be comming
+This code is about a program that has the following functions: Multiplication, Addition and a blink function. There will not be any new additions to this code. 
